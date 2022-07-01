@@ -16,4 +16,11 @@ func LoadRouter(engine *gin.Engine) {
 		v1.POST("/members", controller.PostRanks)
 		v1.DELETE("/members", controller.DeleteRanks)
 	}
+
+	hoge := v1.Group("/hoge")
+	{
+		hoge.POST("/in", controller.In)
+		hoge.PATCH("/up", controller.Up)
+		hoge.POST("/bulk", controller.Bulk)
+	}
 }

@@ -33,7 +33,7 @@ func InsertRank() (bool, error) {
 		{"id": 5, "name": "Diamond", "cr": now, "up": now},
 	}
 
-	// transactionオブジェクトを元にSQLを実行する。
+	// SQLを実行する。
 	rows, err := db.NamedExec(sql, inserts)
 	if err != nil {
 		return false, err
@@ -53,21 +53,19 @@ func InsertRank() (bool, error) {
 func DeleteRank() (bool, error) {
 	//データベース接続
 	db := myDatabase.DbInit()
-
 	sql := `DELETE FROM ranks WHERE name = :del1 OR name = :del2;`
 
-	deletes := map[string]interface{}{
-		"del1": "Platinum",
-		"del2": "Diamond",
-	}
-
-	// トランザクション開始
+	// トランザクション開始(sqlx.Txポインタを受け取る)
 	transaction, err := db.Beginx()
 	if err != nil {
 		return false, err
 	}
 
-	// transactionオブジェクトを元にSQLを実行する。
+	// transactionを元にSQLを実行する。
+	deletes := map[string]interface{}{
+		"del1": "Platinum",
+		"del2": "Diamond",
+	}
 	rows, err := transaction.NamedExec(sql, deletes)
 	if err != nil {
 		//実行に失敗した場合はロールバックさせ、トランザクションを終了させる。
