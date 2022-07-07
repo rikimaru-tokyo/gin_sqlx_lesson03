@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/rikimaru-tokyo/gin_sqlx_lesson02/router"
+	"github.com/rikimaru-tokyo/gin_sqlx_lesson03/router"
 )
 
 func main() {

@@ -1,26 +1,7 @@
-DROP TABLE IF EXISTS members;
-DROP TABLE IF EXISTS ranks;
-DROP TABLE IF EXISTS hoge_table;
-
-CREATE TABLE IF NOT EXISTS `members` (
-    `id` tinyint AUTO_INCREMENT NOT NULL,
-    `name` varchar(50) NOT NULL,
-    `rank_id` tinyint NOT NULL,
-    `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
-    PRIMARY KEY(`id`)
-);
-
-CREATE TABLE IF NOT EXISTS `ranks` (
-    `id` tinyint AUTO_INCREMENT NOT NULL,
-    `name` varchar(50) NOT NULL,
-    `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
-    PRIMARY KEY(`id`)
-);
+DROP TABLE IF EXISTS targets;
 
 
-CREATE TABLE IF NOT EXISTS `hoge_table` (
+CREATE TABLE IF NOT EXISTS `targets` (
     `id` tinyint AUTO_INCREMENT NOT NULL,
     `name` varchar(50) NOT NULL,
     `birthday` DATE NOT NULL,
@@ -29,13 +10,8 @@ CREATE TABLE IF NOT EXISTS `hoge_table` (
 
 
 SET @SAMPLE_TIMESTAMP = "2022-06-07 12:34:56";
-
-INSERT INTO `members` VALUES (1, "Aさん", 3, @SAMPLE_TIMESTAMP, @SAMPLE_TIMESTAMP);
-INSERT INTO `members` VALUES (2, "Bさん", 1, @SAMPLE_TIMESTAMP, @SAMPLE_TIMESTAMP);
-INSERT INTO `members` VALUES (3, "Cさん", 2, @SAMPLE_TIMESTAMP, @SAMPLE_TIMESTAMP);
-
-INSERT INTO `ranks` VALUES (1,"Bronze", @SAMPLE_TIMESTAMP, @SAMPLE_TIMESTAMP);
-INSERT INTO `ranks` VALUES (2,"Silver", @SAMPLE_TIMESTAMP, @SAMPLE_TIMESTAMP);
-INSERT INTO `ranks` VALUES (3,"Gold", @SAMPLE_TIMESTAMP, @SAMPLE_TIMESTAMP);
+INSERT INTO targets VALUES (1,'alpha','2022-01-01');
+INSERT INTO targets VALUES (2,'bravo','2022-01-22');
+INSERT INTO targets VALUES (3,'charlie','2022-02-22');
 
 

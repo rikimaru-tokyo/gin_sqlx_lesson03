@@ -1,4 +1,4 @@
-module github.com/rikimaru-tokyo/gin_sqlx_lesson02
+module github.com/rikimaru-tokyo/gin_sqlx_lesson03
 
 go 1.18
 
